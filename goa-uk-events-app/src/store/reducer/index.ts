@@ -1,7 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
-import usersReducer from "../features/users/usersSlice";
-export default configureStore({
-  reducer: {
-    users: usersReducer,
-  },
+import { combineReducers } from 'redux';
+
+import userReducer from './user';
+
+const rootReducer = combineReducers({
+  user: userReducer,
 });
+
+export type AppState = ReturnType<typeof rootReducer>;
+
+export default rootReducer;

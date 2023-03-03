@@ -1,15 +1,13 @@
 import { useEffect } from 'react';
 import './App.scss';
-import { useDispatch } from 'react-redux';
-import { fetchUserRequest } from './store/action/user';
-import { useSelector } from 'react-redux';
+import { fetchEventRequest } from './store/action/event';
+import { useStore } from './lib/hooks/useStore';
 
 function App() {
-  const dispatch = useDispatch();
-  const data = useSelector((state: any) => state);
-  console.log('data', data);
+  const { dispatchAction } = useStore();
+
   useEffect(() => {
-    dispatch(fetchUserRequest());
+    dispatchAction(fetchEventRequest);
   }, []);
 
   return <div className="App"></div>;

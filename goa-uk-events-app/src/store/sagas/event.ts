@@ -1,11 +1,13 @@
-import axios from 'axios';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { GET } from '../../lib/services';
 import { fetchEventFailure, fetchEventSuccess } from '../action';
 import { FETCH_EVENT_REQUEST } from '../actionTypes';
 import { Event } from '../types';
 
-const getEvents = () => axios.get<Event[]>('https://jsonplaceholder.typicode.com/todos');
+// API Calls
+const getEvents = () => GET('/todos');
 
+// Actions
 function* fetchEventsSaga(): Generator<unknown, void, { data: Event[] }> {
   try {
     const response = yield call(getEvents);
@@ -14,6 +16,7 @@ function* fetchEventsSaga(): Generator<unknown, void, { data: Event[] }> {
         events: response.data,
       }),
     );
+    // eslint-disable-next-line
   } catch (e: any) {
     yield put(
       fetchEventFailure({
@@ -23,6 +26,7 @@ function* fetchEventsSaga(): Generator<unknown, void, { data: Event[] }> {
   }
 }
 
+// Saga declaration
 function* eventSaga() {
   yield all([takeLatest(FETCH_EVENT_REQUEST, fetchEventsSaga)]);
 }

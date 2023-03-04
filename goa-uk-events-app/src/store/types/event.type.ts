@@ -1,4 +1,5 @@
 import { FETCH_EVENT_REQUEST, FETCH_EVENT_SUCCESS, FETCH_EVENT_FAILURE } from '../actionTypes';
+import { REHYDRATE } from 'redux-persist/lib/constants';
 
 export interface Event {
   id: number;
@@ -34,4 +35,9 @@ export type FetchEventFailure = {
   payload: FetchEventFailurePayload;
 };
 
-export type EventActions = FetchEventRequest | FetchEventSuccess | FetchEventFailure;
+export type Rehydrate = {
+  type: typeof REHYDRATE;
+  payload: any;
+};
+
+export type EventActions = FetchEventRequest | FetchEventSuccess | FetchEventFailure | Rehydrate;

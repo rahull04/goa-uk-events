@@ -1,5 +1,6 @@
-import { CommonActions, CommonState } from '../types/common';
+import { CommonActions, CommonState } from '../types/common.type';
 import { SET_LOADER } from '../actionTypes/common';
+import { REHYDRATE } from 'redux-persist/lib/constants';
 
 const initialState: CommonState = {
   isLoading: false,
@@ -12,6 +13,8 @@ const commonReducer = (state = initialState, action: CommonActions) => {
         ...state,
         isLoading: action.payload,
       };
+    case REHYDRATE:
+      return { ...state, ...action.payload.common };
     default:
       return state;
   }

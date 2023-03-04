@@ -1,4 +1,4 @@
-import { LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE, LOG_OUT_USER_REQUEST } from '../actionTypes/user';
+import { LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE, LOG_OUT_USER_REQUEST } from '../actionTypes/user.action-type';
 import { REHYDRATE } from 'redux-persist/lib/constants';
 
 export interface UserProfile {

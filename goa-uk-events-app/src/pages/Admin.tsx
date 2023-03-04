@@ -1,5 +1,14 @@
+import { useStore } from '../lib/hooks';
+import { logOutUserRequest } from '../store/action/user.action';
+
 const Admin = () => {
-  return <div>Admin screen</div>;
+  const { dispatchAction } = useStore();
+  return (
+    <div>
+      <button onClick={() => dispatchAction(logOutUserRequest)}>SIGN OUT</button>
+      <h2>Admin screen</h2>
+    </div>
+  );
 };
 
 export default Admin;

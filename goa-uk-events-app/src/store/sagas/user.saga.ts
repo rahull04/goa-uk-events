@@ -1,7 +1,7 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 // import { GET } from '../../lib/services';
 import { loginUserSuccess } from '../action/user.action';
-import { LOGIN_USER_REQUEST } from '../actionTypes/user';
+import { LOGIN_USER_REQUEST } from '../actionTypes/user.action-type';
 import { UserProfile } from '../types/user.type';
 
 // API Calls

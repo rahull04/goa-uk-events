@@ -1,4 +1,4 @@
-import { LOGIN_USER_REQUEST, LOGIN_USER_FAILURE, LOGIN_USER_SUCCESS, LOG_OUT_USER_REQUEST } from '../actionTypes/user';
+import { LOGIN_USER_REQUEST, LOGIN_USER_FAILURE, LOGIN_USER_SUCCESS, LOG_OUT_USER_REQUEST } from '../actionTypes/user.action-type';
 import { LoginOutUserRequest, LoginUserFailure, LoginUserRequest, LoginUserSuccess, UserProfile } from '../types/user.type';
 
 export const loginUserRequest = (): LoginUserRequest => ({

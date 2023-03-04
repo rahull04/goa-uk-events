@@ -1,5 +1,5 @@
 import { CommonActions, CommonState } from '../types/common.type';
-import { SET_LOADER } from '../actionTypes/common';
+import { SET_LOADER } from '../actionTypes/common.action-type';
 import { REHYDRATE } from 'redux-persist/lib/constants';
 
 const initialState: CommonState = {

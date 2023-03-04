@@ -1,4 +1,4 @@
-import { SET_LOADER } from '../actionTypes/common';
+import { SET_LOADER } from '../actionTypes/common.action-type';
 import { REHYDRATE } from 'redux-persist/lib/constants';
 
 export interface CommonState {

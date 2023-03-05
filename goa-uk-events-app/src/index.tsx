@@ -4,7 +4,7 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { store, persistor, sagaMiddleware } from './store/store';
+import { store, sagaMiddleware, persistedStore } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { rootSaga } from './store/sagas';
 
@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={null} persistor={persistedStore}>
         <App />
       </PersistGate>
     </Provider>

@@ -1,5 +1,5 @@
 import { useStore } from '../lib/hooks';
-import { logOutUserRequest } from '../store/action/user.action';
+import { logOutUserRequest } from '../store/stores/user.store';
 
 const Admin = () => {
   const { dispatchAction } = useStore();

@@ -1,8 +1,8 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { GET } from '../../lib/services';
-import { fetchEventFailure, fetchEventSuccess } from '../action';
-import { FETCH_EVENT_REQUEST } from '../actionTypes';
+import { fetchEventsFailure, fetchEventsSuccess } from '../stores/event.store';
 import { Event } from '../types';
+import { setLoaderRequest } from '../stores/common.store';
 
 // API Calls
 const getEvents = () => GET('/todos');
@@ -11,24 +11,19 @@ const getEvents = () => GET('/todos');
 // fetchEvents
 function* fetchEventsSaga(): Generator<unknown, void, { data: Event[] }> {
   try {
+    yield put(setLoaderRequest(true));
     const response = yield call(getEvents);
-    yield put(
-      fetchEventSuccess({
-        events: response.data,
-      }),
-    );
+    yield put(fetchEventsSuccess(response.data));
   } catch (e: any) {
-    yield put(
-      fetchEventFailure({
-        error: e.message,
-      }),
-    );
+    yield put(fetchEventsFailure());
+  } finally {
+    yield put(setLoaderRequest(false));
   }
 }
 
 // Saga declaration
 function* eventSaga() {
-  yield all([takeLatest(FETCH_EVENT_REQUEST, fetchEventsSaga)]);
+  yield all([takeLatest('event/fetchEventsRequest', fetchEventsSaga)]);
 }
 
 export default eventSaga;

@@ -1,20 +1,16 @@
 import { useEffect } from 'react';
-import { fetchEventRequest } from '../store/action/event.action';
 import { useStore } from '../lib/hooks/useStore';
-import { loginUserRequest, logOutUserRequest } from '../store/action/user.action';
-import Loader from '../components/Loader.component';
+import { fetchEventsRequest } from '../store/stores/event.store';
+import { loginUserRequest, logOutUserRequest } from '../store/stores/user.store';
 
 const Home = () => {
+  const { dispatchAction, states } = useStore();
   const {
-    dispatchAction,
-    states: {
-      user: { isAuthenticated },
-      event: { isLoading, events },
-    },
-  } = useStore();
-
+    user: { isAuthenticated },
+    event: { events },
+  } = states;
   useEffect(() => {
-    dispatchAction(fetchEventRequest);
+    dispatchAction(fetchEventsRequest);
   }, []);
 
   return (
@@ -22,7 +18,6 @@ const Home = () => {
       <h2>Home</h2>
       <button onClick={() => dispatchAction(isAuthenticated ? logOutUserRequest : loginUserRequest)}>{isAuthenticated ? 'SIGN OUT' : 'SIGN IN'} </button>
       {isAuthenticated && events.length ? JSON.stringify(events) : null}
-      {isLoading ? <Loader /> : null}
     </div>
   );
 };

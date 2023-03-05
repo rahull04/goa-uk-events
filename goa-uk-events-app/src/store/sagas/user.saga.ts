@@ -1,7 +1,6 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { loginUserSuccess } from '../stores/user.store';
 // import { GET } from '../../lib/services';
-import { loginUserSuccess } from '../action/user.action';
-import { LOGIN_USER_REQUEST } from '../actionTypes/user.action-type';
 import { UserProfile } from '../types/user.type';
 
 // API Calls
@@ -27,7 +26,7 @@ function* signInUserSaga(): Generator<unknown, void, UserProfile> {
 
 // Saga declaration
 function* userSaga() {
-  yield all([takeLatest(LOGIN_USER_REQUEST, signInUserSaga)]);
+  yield all([takeLatest('user/loginUserRequest', signInUserSaga)]);
 }
 
 export default userSaga;

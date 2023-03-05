@@ -14,7 +14,7 @@ const commonReducer = (state = initialState, action: CommonActions) => {
         isLoading: action.payload,
       };
     case REHYDRATE:
-      return { ...state, ...action.payload.common };
+      return { ...state, ...action.payload?.common };
     default:
       return state;
   }

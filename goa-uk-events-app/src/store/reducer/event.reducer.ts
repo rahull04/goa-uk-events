@@ -30,7 +30,7 @@ const eventReducer = (state = initialState, action: EventActions) => {
         error: action.payload.error,
       };
     case REHYDRATE:
-      return { ...state, ...action.payload.event };
+      return { ...state, ...action.payload?.event };
     default:
       return {
         ...state,

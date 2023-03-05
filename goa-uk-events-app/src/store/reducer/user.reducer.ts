@@ -34,7 +34,7 @@ const userReducer = (state = initialState, action: UserActions) => {
         profile: {},
       };
     case REHYDRATE:
-      return { ...state, ...action.payload.user };
+      return { ...state, ...action.payload?.user };
     default:
       return {
         ...state,

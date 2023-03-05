@@ -1,13 +1,13 @@
-interface MainLayoutProps {
-  children?: JSX.Element[];
-}
+import Header from './Header.component';
+import { Outlet } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = () => {
   return (
-    <div>
-      <h2>MainLayout.component</h2>
-      {children}
-    </div>
+    <Container>
+      <Header />
+      <Outlet />
+    </Container>
   );
 };
 

@@ -15,12 +15,6 @@ const routes = (isSignedIn: boolean): RouteObject[] => [
   {
     path: '/',
     element: <Home />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-    ],
   },
   {
     path: '/404',

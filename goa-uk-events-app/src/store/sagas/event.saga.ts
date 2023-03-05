@@ -8,6 +8,7 @@ import { Event } from '../types';
 const getEvents = () => GET('/todos');
 
 // Actions
+// fetchEvents
 function* fetchEventsSaga(): Generator<unknown, void, { data: Event[] }> {
   try {
     const response = yield call(getEvents);
@@ -16,7 +17,6 @@ function* fetchEventsSaga(): Generator<unknown, void, { data: Event[] }> {
         events: response.data,
       }),
     );
-    // eslint-disable-next-line
   } catch (e: any) {
     yield put(
       fetchEventFailure({

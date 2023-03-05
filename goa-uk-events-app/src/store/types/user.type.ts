@@ -9,7 +9,7 @@ export interface UserProfile {
 
 export interface UserState {
   isAuthenticated: boolean;
-  authenticating: boolean;
+  isAuthenticating: boolean;
   profile: UserProfile;
 }
 

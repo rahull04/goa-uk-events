@@ -11,6 +11,7 @@ export interface EventState {
   pending: boolean;
   events: Event[];
   error: string | null;
+  isLoading: boolean;
 }
 
 export interface FetchEventSuccessPayload {

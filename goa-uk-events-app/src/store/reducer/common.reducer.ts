@@ -6,7 +6,7 @@ const initialState: CommonState = {
   isLoading: false,
 };
 
-const commonReducer = (state = initialState, action: CommonActions) => {
+const commonReducer = (state = initialState, action: CommonActions): CommonState => {
   switch (action.type) {
     case SET_LOADER:
       return {

@@ -4,28 +4,28 @@ import { REHYDRATE } from 'redux-persist/lib/constants';
 
 const initialState: UserState = {
   isAuthenticated: false,
-  authenticating: false,
+  isAuthenticating: false,
   profile: {},
 };
 
-const userReducer = (state = initialState, action: UserActions) => {
+const userReducer = (state = initialState, action: UserActions): UserState => {
   switch (action.type) {
     case LOGIN_USER_REQUEST:
       return {
         ...state,
-        authenticating: true,
+        isAuthenticating: true,
       };
     case LOGIN_USER_SUCCESS:
       return {
         ...state,
         profile: action.payload,
-        authenticating: false,
+        isAuthenticating: false,
         isAuthenticated: true,
       };
     case LOGIN_USER_FAILURE:
       return {
         ...state,
-        authenticating: false,
+        isAuthenticating: false,
       };
     case LOG_OUT_USER_REQUEST:
       return {

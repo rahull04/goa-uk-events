@@ -5,7 +5,7 @@ import { Event } from '../types';
 import { setLoaderRequest } from '../stores/common.store';
 import { Logger } from '../../lib/utils';
 
-const logger = new Logger('EventSaga');
+const logger = new Logger({ name: 'EventSaga' });
 
 // API Calls
 const getEvents = () => GET('/todos');

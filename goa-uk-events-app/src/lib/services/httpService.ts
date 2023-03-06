@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Logger } from '../utils';
 
-const logger = new Logger('EventSaga');
+const logger = new Logger({ name: 'HttpService' });
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,

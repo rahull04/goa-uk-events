@@ -4,7 +4,7 @@ import { loginUserSuccess } from '../stores/user.store';
 // import { GET } from '../../lib/services';
 import { UserProfile } from '../types/user.type';
 
-const logger = new Logger('UserSaga');
+const logger = new Logger({ name: 'UserSaga' });
 
 // API Calls
 const authenticateUser = async () => {

@@ -4,11 +4,15 @@ enum LogLevel {
   ERROR = 'ERROR',
 }
 
-export class Logger {
-  private fileName;
+interface Options {
+  name: string;
+}
 
-  constructor(fileName: string) {
-    this.fileName = fileName;
+export class Logger {
+  private name;
+
+  constructor(options: Options) {
+    this.name = options.name;
   }
 
   public get isDev() {
@@ -34,14 +38,14 @@ export class Logger {
   }
 
   private logMessage(...message: string[]) {
-    console.log(`${LogLevel.LOG}-${this.fileName}:`, ...message);
+    console.log(`${LogLevel.LOG}(${this.name}):`, ...message);
   }
 
   private warnMessage(...message: string[]) {
-    console.warn(`${LogLevel.WARN}-${this.fileName}:`, ...message);
+    console.warn(`${LogLevel.WARN}(${this.name}):`, ...message);
   }
 
   private errorMessage(...message: string[]) {
-    console.error(`${LogLevel.ERROR}-${this.fileName}:`, ...message);
+    console.error(`${LogLevel.ERROR}(${this.name}):`, ...message);
   }
 }

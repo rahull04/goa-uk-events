@@ -7,13 +7,12 @@ const Header = () => {
       <Container>
         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="#home">
-            <Link to={'/'}>Home</Link>
-          </Nav.Link>
-          <Nav.Link href="#features">
-            <Link to={'/admin'}>Admin</Link>
-          </Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Link className="nav-link" to={'/'}>
+            Home
+          </Link>
+          <Link className="nav-link" to={'/admin'}>
+            Admin
+          </Link>
         </Nav>
       </Container>
     </Navbar>

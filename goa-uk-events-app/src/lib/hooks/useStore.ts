@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
-import { StoreState } from '../../store/stores';
-// import { StoreState } from '../../store/reducer';
+import type { StoreState } from '../../store/stores';
 
 export const useStore = () => {
   const states = useSelector((state: StoreState) => state);
